@@ -1,0 +1,40 @@
+Corner Cases
+
+Can't open fortune file
+badger-fortune -f -n -1 -o out.txt
+badger-fortune -f notexist.txt fortune.txt -n 1
+
+No fortune file was provided
+badger-fortune -n 1 -o output.txt
+badger-fortune -n 1 -o out.txt -f
+
+Can't open batch file
+badger-fortune -f fortune.txt -b -o out.txt
+
+Invalid Fortune Number
+badger-fortune -n -1 -o output.txt
+badger-fortune -f fortune.txt -n -o out.txt
+badger-fortune -f fortune.txt -n -5
+
+You can't use batch mode when specifying a fortune number using -n
+badger-fortune -n 57 -b batch.txt
+badger-fortune -n 1 -o out.txt -b
+
+You can't specify a specific fortune number in conjunction with batch mode
+badger-fortune -b batch.txt -o out.txt -n
+
+Invalid Flag Types
+badger-fortune -f fortune.txt fortune.txt -n -1
+badger-fortune -f fortune.txt fortune.txt fortune.txt -n -1
+badger-fortune -n 1 -o out.txt 1
+badger-fortune a b c d
+badger-fortune -n 1 a b
+badger-fortune -n 1 -o o.txt a b
+
+NOT considered
+badger-fortune -f fortune.txt -f fortune.txt
+badger-fortune -f fortune.txt -f fortune.txt -n 1
+badger-fortune -f fortune1.txt -f fortune2.txt -n 1
+badger-fortune -f fortune.txt -o out.txt -n
+badger-fortune -f fortune.txt -o out.txt -b
+badger-fortune -f fortune.txt -n 1 -o
